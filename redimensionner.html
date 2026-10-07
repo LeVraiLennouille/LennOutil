@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Redimensionner une image — Atelier</title>
+  <meta name="description" content="Redimensionnez une image en pourcentage ou en pixels exacts, sans quitter votre navigateur.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app">
+
+    <nav class="rail" aria-label="Outils">
+      <a class="rail-brand" href="index.html" aria-label="Atelier — retour à l'accueil"><span class="mark">A.</span></a>
+      <ul class="rail-nav" id="rail-nav">
+        <li><a class="rail-btn" href="index.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+            <span class="lb">Accueil</span>
+          </a></li>
+        <li><a class="rail-btn" href="compresser.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3v4a2 2 0 0 1-2 2H3" />
+                <path d="M15 3v4a2 2 0 0 0 2 2h4" />
+                <path d="M9 21v-4a2 2 0 0 0-2-2H3" />
+                <path d="M15 21v-4a2 2 0 0 1 2-2h4" /></svg></span>
+            <span class="lb">Compresser</span>
+          </a></li>
+        <li><a class="rail-btn" href="redimensionner.html" aria-current="page">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v6h6" />
+                <path d="M20 10V4h-6" />
+                <path d="M4 20l7-7" />
+                <path d="M20 4l-7 7" /></svg></span>
+            <span class="lb">Redimensionner</span>
+          </a></li>
+        <li><a class="rail-btn" href="convertir.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+                <path d="M21 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+                <path d="M3 21v-5h5" /></svg></span>
+            <span class="lb">Convertir</span>
+          </a></li>
+        <li><a class="rail-btn" href="recadrer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2v14a2 2 0 0 0 2 2h14" />
+                <path d="M18 22V8a2 2 0 0 0-2-2H2" /></svg></span>
+            <span class="lb">Recadrer</span>
+          </a></li>
+        <li><a class="rail-btn" href="ameliorer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" />
+                <path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15z" /></svg></span>
+            <span class="lb">Améliorer</span>
+          </a></li>
+        <li><a class="rail-btn" href="detourer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3" />
+                <circle cx="12" cy="12" r="5" /></svg></span>
+            <span class="lb">Détourer</span>
+          </a></li>
+        <li><a class="rail-btn" href="filigrane.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z" /></svg></span>
+            <span class="lb">Filigrane</span>
+          </a></li>
+      </ul>
+    </nav>
+
+    <main class="workspace" id="workspace">
+
+      <section class="tool-panel" id="panel-resize" aria-labelledby="h-resize">
+        <div class="panel-head">
+          <h1 id="h-resize">Redimensionner une image</h1>
+          <p>Changez les dimensions en pourcentage ou en pixels exacts. Le ratio peut être verrouillé pour éviter toute
+            déformation.</p>
+        </div>
+        <div class="panel-body">
+          <div class="stage-col">
+            <div class="dropzone" id="rs-dropzone">
+              <div class="dz-inner">
+                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
+                  <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
+                <div class="dz-title">Glissez une image ou <b>parcourez vos fichiers</b></div>
+                <div class="dz-sub">PNG, JPG, SVG, WEBP ou AVIF</div>
+              </div>
+              <input type="file" id="rs-file-input"
+                accept=".png,.jpg,.jpeg,.svg,.webp,.avif,image/png,image/jpeg,image/svg+xml,image/webp,image/avif"
+                aria-label="Choisir une image à redimensionner">
+            </div>
+            <div class="stage checkerboard" id="rs-stage">
+              <div class="loading-overlay" id="rs-loading"><span class="spinner"></span><span
+                  class="msg">Redimensionnement…</span></div>
+              <img class="stage-media" id="rs-preview" alt="Aperçu de l'image redimensionnée">
+            </div>
+            <div class="stat-strip" id="rs-stats" style="display:none;">
+              <div class="stat"><span class="k">Dimensions d'origine</span><span class="v mono"
+                  id="rs-stat-before">—</span></div>
+              <span class="stat-sep">→</span>
+              <div class="stat"><span class="k">Nouvelles dimensions</span><span class="v mono accent"
+                  id="rs-stat-after">—</span></div>
+              <div class="stat"><span class="k">Poids estimé</span><span class="v mono" id="rs-stat-size">—</span></div>
+            </div>
+          </div>
+          <div class="controls-col">
+            <div class="card control-card" id="rs-controls-raster">
+              <h3>Mode</h3>
+              <div class="seg seg-block" role="group" aria-label="Mode de redimensionnement">
+                <button type="button" id="rs-mode-percent-btn" aria-pressed="true">Pourcentage</button>
+                <button type="button" id="rs-mode-pixel-btn" aria-pressed="false">Pixels</button>
+              </div>
+              <div class="field" id="rs-percent-block" style="margin-top:14px;">
+                <div class="field-row"><label for="rs-percent-slider">Échelle</label><span class="val"
+                    id="rs-percent-value">100%</span></div>
+                <input type="range" id="rs-percent-slider" min="5" max="400" value="100">
+              </div>
+              <div id="rs-pixel-block" style="display:none;margin-top:14px;">
+                <div class="dim-row">
+                  <div class="field" style="margin-bottom:0;"><label for="rs-width-input">Largeur</label><input
+                      class="num mono" type="number" id="rs-width-input" min="1"></div>
+                  <button class="lock" id="rs-lock-btn" aria-pressed="true" title="Conserver le ratio"
+                    aria-label="Conserver le ratio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="11" width="14" height="9" rx="2" />
+                      <path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg></button>
+                  <div class="field" style="margin-bottom:0;"><label for="rs-height-input">Hauteur</label><input
+                      class="num mono" type="number" id="rs-height-input" min="1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card control-card" id="rs-controls-svg" style="display:none;">
+              <h3>Vectoriel</h3>
+              <p class="hint">Un SVG se redimensionne sans jamais perdre en qualité : seuls ses attributs de dimension
+                sont modifiés, ses tracés restent identiques.</p>
+              <div class="field" style="margin-top:10px;"><label for="rs-svg-percent">Échelle</label>
+                <div class="field-row"><input type="range" id="rs-svg-percent" min="5" max="400" value="100"
+                    style="flex:1;"><span class="val" id="rs-svg-percent-value" style="margin-left:10px;">100%</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-accent btn-block" id="rs-download-btn" disabled>Télécharger</button>
+            <button class="btn btn-text btn-block" id="rs-reset-btn">Recommencer</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/redimensionner.js"></script>
+
+</body>
+
+</html>
