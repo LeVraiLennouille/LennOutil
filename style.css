@@ -451,7 +451,7 @@ a.rail-btn,a.rail-brand{text-decoration:none;}
 /* Page d'accueil                                                      */
 /* ------------------------------------------------------------------ */
 .home-body{height:auto;min-height:100%;}
-.home{max-width:1080px;margin:0 auto;padding:72px 32px 96px;}
+.home{min-width:0;width:100%;max-width:1180px;padding:56px 44px 96px;}
 .home-head{max-width:680px;margin-bottom:48px;}
 .home-mark{
   width:44px;height:44px;border:1.5px solid var(--accent);border-radius:10px;
@@ -491,6 +491,6 @@ a.rail-btn,a.rail-brand{text-decoration:none;}
 .tool-card:hover .tool-go{color:var(--accent-strong);}
 
 @media (max-width:760px){
-  .home{padding:44px 18px 64px;}
+  .home{padding:28px 16px 60px;}
   .home-head{margin-bottom:34px;}
 }
