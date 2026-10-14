@@ -232,7 +232,7 @@
       if (!t) {
         t = document.createElement('div');
         t.id = 'gl-toast';
-        t.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:8px;font-size:13px;box-shadow:var(--shadow-pop);z-index:999;opacity:0;transition:opacity .2s;max-width:80vw;text-align:center;';
+        t.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--Charcoal);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:999;opacity:0;transition:opacity .2s;max-width:80vw;text-align:center;';
         document.body.appendChild(t);
       }
       t.textContent = msg;
